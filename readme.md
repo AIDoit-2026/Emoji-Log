@@ -31,6 +31,16 @@ After building [hundreds of open source software](https://github.com/ahmadawais)
 4. Emoji-Log will add itself to the Git message box as a prefix
 5. Write the git commit message and commit it.
 
+## CUSTOM EMOJIS
+
+Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>E</kbd> on Windows/Linux or
+<kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>E</kbd> on macOS to open **Emoji Log:
+Configure Emojis**.
+
+The configuration menu lets you add, edit, delete, and reorder commit prefixes,
+or restore the built-in Emoji Log defaults. Custom emojis are saved in your
+VSCode user settings and can be synchronized through Settings Sync.
+
 <br>
 
 ![Install](https://raw.githubusercontent.com/ahmadawais/shades-of-purple-vscode/master/images/4_install.png)

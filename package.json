@@ -32,7 +32,8 @@
 	],
 	"icon": "images/icon.png",
 	"activationEvents": [
-		"onCommand:extension.EmojiLog"
+		"onCommand:extension.EmojiLog",
+		"onCommand:emojiLog.configureEmojis"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -44,8 +45,54 @@
 					"dark": "images/icon_dark.svg",
 					"light": "images/icon_light.svg"
 				}
+			},
+			{
+				"command": "emojiLog.configureEmojis",
+				"title": "Emoji Log: Configure Emojis"
 			}
 		],
+		"keybindings": [
+			{
+				"command": "emojiLog.configureEmojis",
+				"key": "ctrl+alt+e",
+				"mac": "cmd+alt+e"
+			}
+		],
+		"configuration": {
+			"title": "Emoji Log",
+			"properties": {
+				"emojiLog.emojis": {
+					"type": "array",
+					"scope": "application",
+					"description": "Commit prefixes shown by Emoji Log, in display order.",
+					"uniqueItems": true,
+					"items": {
+						"type": "object",
+						"required": ["prefix", "description"],
+						"properties": {
+							"prefix": {
+								"type": "string",
+								"description": "Text inserted at the start of the Git commit message."
+							},
+							"description": {
+								"type": "string",
+								"description": "Explanation shown in the emoji picker."
+							}
+						},
+						"additionalProperties": false
+					},
+					"default": [
+						{ "prefix": "📦 NEW:", "description": "Add something entirely new." },
+						{ "prefix": "👌 IMPROVE:", "description": "Improve piece of code like refactoring." },
+						{ "prefix": "🐛 FIX:", "description": "Fix a bug — need I say more?" },
+						{ "prefix": "📖 DOC:", "description": "Anything documentation related." },
+						{ "prefix": "🚀 RELEASE:", "description": "Release a new version." },
+						{ "prefix": "🤖 TEST:", "description": "Testing related commits." },
+						{ "prefix": "‼️ BREAKING:", "description": "Change that breaks previous versions." }
+					]
+				}
+			}
+		},
 		"menus": {
 			"scm/title": [
 				{

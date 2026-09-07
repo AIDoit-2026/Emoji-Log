@@ -1,35 +1,35 @@
-interface Emoji {
-	readonly emoji: any;
-	readonly description: any;
+export interface EmojiLogEntry {
+	prefix: string;
+	description: string;
 }
 
-let EmojiLog: Array<Emoji> = [
+const EmojiLog: EmojiLogEntry[] = [
 	{
-		emoji: '📦 NEW:',
+		prefix: '📦 NEW:',
 		description: 'Add something entirely new.',
 	},
 	{
-		emoji: '👌 IMPROVE:',
+		prefix: '👌 IMPROVE:',
 		description: 'Improve piece of code like refactoring.',
 	},
 	{
-		emoji: '🐛 FIX:',
+		prefix: '🐛 FIX:',
 		description: 'Fix a bug — need I say more?',
 	},
 	{
-		emoji: '📖 DOC:',
+		prefix: '📖 DOC:',
 		description: 'Anything documentation related.',
 	},
 	{
-		emoji: '🚀 RELEASE:',
+		prefix: '🚀 RELEASE:',
 		description: 'Release a new version.',
 	},
 	{
-		emoji: '🤖 TEST:',
+		prefix: '🤖 TEST:',
 		description: 'Testing related commits.',
 	},
 	{
-		emoji: '‼️ BREAKING:',
+		prefix: '‼️ BREAKING:',
 		description: 'Change that breaks previous versions.',
 	},
 ];
