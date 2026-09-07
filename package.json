@@ -1,17 +1,17 @@
 {
-	"name": "emoji-log-vscode",
-	"displayName": "Emoji Log",
+	"name": "ccimage-emoji-log",
+	"displayName": "Emoji Log 2026",
 	"description": "Emoji-Log — An Emoji Git commit log messages spec standard. [ 📦👌🐛📖🚀🤖 ‼️ ].",
 	"version": "1.5.0",
 	"author": {
-		"name": "Ahmad Awais",
-		"email": "me@AhmadAwais.com"
+		"name": "ccimage",
+		"email": "ccimage.sj@gmail.com"
 	},
-	"publisher": "ahmadawais",
+	"publisher": "ccimage",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ahmadawais/Emoji-Log-VSCode"
+		"url": "https://github.com/AIDoit-2026/Emoji-Log"
 	},
 	"engines": {
 		"vscode": "^1.75.0"
