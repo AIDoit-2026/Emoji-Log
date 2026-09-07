@@ -2,7 +2,7 @@
 	"name": "ccimage-emoji-log",
 	"displayName": "Emoji Log 2026",
 	"description": "Emoji-Log — An Emoji Git commit log messages spec standard. [ 📦👌🐛📖🚀🤖 ‼️ ].",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"author": {
 		"name": "ccimage",
 		"email": "ccimage.sj@gmail.com"

@@ -60,7 +60,7 @@ export async function configureEmojis(): Promise<void> {
 			case 'settings':
 				await vscode.commands.executeCommand(
 					'workbench.action.openSettings',
-					'@ext:ccimage.emoji-log emojiLog.emojis',
+					'@ext:ccimage.ccimage-emoji-log emojiLog.emojis',
 				);
 				return;
 		}
