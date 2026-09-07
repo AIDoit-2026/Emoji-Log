@@ -114,7 +114,8 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile"
+		"pretest": "npm run compile",
+		"test": "node test/repositoryTarget.test.js"
 	},
 	"devDependencies": {
 		"@types/glob": "^8.0.1",

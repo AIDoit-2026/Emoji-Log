@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
-import { GitExtension, Repository } from './api/git';
+import { GitExtension } from './api/git';
 import { configureEmojis, getConfiguredEmojis } from './EmojiLog/EmojiConfiguration';
+import { prefixInputBox, resolveTargetInputBoxes } from './EmojiLog/RepositoryTarget';
 
 export function activate(context: vscode.ExtensionContext) {
 	const emojiLogCommand = vscode.commands.registerCommand('extension.EmojiLog', async (uri?) => {
@@ -8,6 +9,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 		if (!git) {
 			vscode.window.showErrorMessage('Unable to load Git Extension');
+			return;
+		}
+
+		const targetInputBoxes = resolveTargetInputBoxes(git.repositories, uri);
+		if (targetInputBoxes.length === 0) {
+			void vscode.window.showWarningMessage('Unable to find the selected Git repository.');
 			return;
 		}
 
@@ -36,36 +43,14 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		void vscode.commands.executeCommand('workbench.view.scm');
-
-		if (uri) {
-			const repositoryRoot = uri._rootUri ?? uri.rootUri;
-			const selectedRepository = repositoryRoot
-				? git.repositories.find((repository) => repository.rootUri.toString() === repositoryRoot.toString())
-				: undefined;
-			if (selectedRepository) {
-				prefixCommit(selectedRepository, selected.prefix);
-			} else {
-				void vscode.window.showWarningMessage('Unable to find the selected Git repository.');
-			}
-		} else {
-			for (const repo of git.repositories) {
-				prefixCommit(repo, selected.prefix);
-			}
+		for (const inputBox of targetInputBoxes) {
+			prefixInputBox(inputBox, selected.prefix);
 		}
 	});
 
 	const configureCommand = vscode.commands.registerCommand('emojiLog.configureEmojis', configureEmojis);
 	context.subscriptions.push(emojiLogCommand, configureCommand);
 }
-
-function prefixCommit(repository: Repository, prefix: string) {
-	const currentMessage = repository.inputBox.value;
-	if (currentMessage === prefix || currentMessage.startsWith(`${prefix} `)) {
-		return;
-	}
-	repository.inputBox.value = `${prefix} ${currentMessage}`;
-}
-
 function getGitExtension() {
 	const vscodeGit = vscode.extensions.getExtension<GitExtension>('vscode.git');
 	const gitExtension = vscodeGit && vscodeGit.exports;
