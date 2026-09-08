@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <a href="https://github.com/ahmadawais/Emoji-Log-VSCode"><img src="https://raw.githubusercontent.com/ahmadawais/Emoji-Log-VSCode/master/images/icon.png" /></a>
 
@@ -12,6 +13,9 @@
 After building [hundreds of open source software](https://github.com/ahmadawais) I've ended up inventing a git commit log standard called `EMOJI-LOG` that helps me understand a project's history with a less cognitive load just by looking at the git log.
 
 </h5>
+
+## INSTALL
+GOTO [Market](https://marketplace.visualstudio.com/items?itemName=ccimage.ccimage-emoji-log) press install
 
 ## USAGE
 
